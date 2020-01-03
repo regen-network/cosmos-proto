@@ -321,6 +321,7 @@ func (this *ABC) FromInterface(value github_com_regen_network_cosmos_proto_test_
 	}
 	return fmt.Errorf("can't encode value of type %T as message ABC", value)
 }
+
 func (m *ABC) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)

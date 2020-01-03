@@ -99,6 +99,7 @@ func (p *interfacetype) Generate(file *generator.FileDescriptor) {
 		p.P(`return fmt.Errorf("can't encode value of type %T as message `, ccTypeName, `", value)`)
 		p.Out()
 		p.P(`}`)
+		p.P(``)
 	}
 }
 
