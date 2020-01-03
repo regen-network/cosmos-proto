@@ -7,4 +7,4 @@ proto-gen:
 test:
 	go install ./protoc-gen-gocosmos
 	protoc -I=. --gocosmos_out=plugins=interfacetype:. test/interfacetype.proto
-	go build ./test
+	go test ./test

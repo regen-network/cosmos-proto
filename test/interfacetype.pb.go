@@ -307,6 +307,18 @@ func (this *TestInterfaceMsg) ToInterface() github_com_regen_network_cosmos_prot
 	}
 	return nil
 }
+
+func (this *TestInterfaceMsg) FromInterface(value github_com_regen_network_cosmos_proto_test_iface.Interface1) error {
+	switch vt := value.(type) {
+	case *A:
+		this.Sum = &TestInterfaceMsg_A{vt}
+	case *B:
+		this.Sum = &TestInterfaceMsg_B{vt}
+	case *C:
+		this.Sum = &TestInterfaceMsg_C{vt}
+	}
+	return fmt.Errorf("can't encode value of type %T as message TestInterfaceMsg", value)
+}
 func (m *TestInterfaceMsg) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
