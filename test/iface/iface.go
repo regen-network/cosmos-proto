@@ -1,5 +1,5 @@
 package iface
 
-type Interface1 interface {
+type Msg interface {
 	SomeMethod() string
 }

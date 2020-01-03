@@ -6,7 +6,7 @@ import "cosmos.proto";
 option go_package = "test";
 
 message ABC {
-    option (cosmos_proto.interface_type) = "github.com/regen-network/cosmos-proto/test/iface.Interface1";
+    option (cosmos_proto.interface_type) = "github.com/regen-network/cosmos-proto/test/iface.Msg";
     oneof sum {
         A a = 1;
         B b = 2;
