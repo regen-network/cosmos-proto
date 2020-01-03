@@ -312,10 +312,13 @@ func (this *TestInterfaceMsg) FromInterface(value github_com_regen_network_cosmo
 	switch vt := value.(type) {
 	case *A:
 		this.Sum = &TestInterfaceMsg_A{vt}
+		return nil
 	case *B:
 		this.Sum = &TestInterfaceMsg_B{vt}
+		return nil
 	case *C:
 		this.Sum = &TestInterfaceMsg_C{vt}
+		return nil
 	}
 	return fmt.Errorf("can't encode value of type %T as message TestInterfaceMsg", value)
 }

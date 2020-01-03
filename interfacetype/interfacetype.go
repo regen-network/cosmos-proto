@@ -92,6 +92,7 @@ func (p *interfacetype) Generate(file *generator.FileDescriptor) {
 			p.P(`case `, goTyp, `:`)
 			p.In()
 			p.P(`this.`, oneofName, ` = &`, structName, `{vt}`)
+			p.P("return nil")
 			p.Out()
 		}
 		p.P(`}`)
