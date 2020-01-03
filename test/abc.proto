@@ -1,11 +1,11 @@
 syntax = "proto3";
-package test.interfacetype;
+package test.abc;
 
 import "cosmos.proto";
 
 option go_package = "test";
 
-message TestInterfaceMsg {
+message ABC {
     option (cosmos_proto.interface_type) = "github.com/regen-network/cosmos-proto/test/iface.Interface1";
     oneof sum {
         A a = 1;

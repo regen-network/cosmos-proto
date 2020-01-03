@@ -6,7 +6,7 @@ import (
 )
 
 func TestToAndFrom(t *testing.T) {
-	abc := TestInterfaceMsg{}
+	abc := ABC{}
 	assert.NoError(t, abc.FromInterface(&A{}))
 	assert.NotNil(t, abc.ToInterface())
 	assert.NoError(t, abc.FromInterface(&B{}))
