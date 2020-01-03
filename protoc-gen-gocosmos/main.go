@@ -14,8 +14,11 @@ func main() {
 	vanity.ForEachFile(files, vanity.TurnOnMarshalerAll)
 	vanity.ForEachFile(files, vanity.TurnOnSizerAll)
 	vanity.ForEachFile(files, vanity.TurnOnUnmarshalerAll)
-	//vanity.ForEachFile(files, vanity.TurnOffGoStringerAll)
-	//vanity.ForEachFile(files, vanity.TurnOffGoGettersAll)
+
+	vanity.ForEachFieldInFilesExcludingExtensions(vanity.OnlyProto2(files), vanity.TurnOffNullableForNativeTypesWithoutDefaultsOnly)
+	vanity.ForEachFile(files, vanity.TurnOffGoUnrecognizedAll)
+	vanity.ForEachFile(files, vanity.TurnOffGoUnkeyedAll)
+	vanity.ForEachFile(files, vanity.TurnOffGoSizecacheAll)
 
 	resp := command.Generate(req)
 	command.Write(resp)

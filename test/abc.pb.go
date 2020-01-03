@@ -29,10 +29,7 @@ type ABC struct {
 	//	*ABC_A
 	//	*ABC_B
 	//	*ABC_C
-	Sum                  isABC_Sum `protobuf_oneof:"sum"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
+	Sum isABC_Sum `protobuf_oneof:"sum"`
 }
 
 func (m *ABC) Reset()         { *m = ABC{} }
@@ -126,10 +123,7 @@ func (*ABC) XXX_OneofWrappers() []interface{} {
 }
 
 type A struct {
-	X                    int32    `protobuf:"varint,1,opt,name=x,proto3" json:"x,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	X int32 `protobuf:"varint,1,opt,name=x,proto3" json:"x,omitempty"`
 }
 
 func (m *A) Reset()         { *m = A{} }
@@ -173,10 +167,7 @@ func (m *A) GetX() int32 {
 }
 
 type B struct {
-	Y                    uint32   `protobuf:"varint,1,opt,name=y,proto3" json:"y,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Y uint32 `protobuf:"varint,1,opt,name=y,proto3" json:"y,omitempty"`
 }
 
 func (m *B) Reset()         { *m = B{} }
@@ -220,10 +211,7 @@ func (m *B) GetY() uint32 {
 }
 
 type C struct {
-	Z                    bool     `protobuf:"varint,1,opt,name=z,proto3" json:"z,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Z bool `protobuf:"varint,1,opt,name=z,proto3" json:"z,omitempty"`
 }
 
 func (m *C) Reset()         { *m = C{} }
@@ -276,7 +264,7 @@ func init() {
 func init() { proto.RegisterFile("test/abc.proto", fileDescriptor_edbe9e0eab89a1a7) }
 
 var fileDescriptor_edbe9e0eab89a1a7 = []byte{
-	// 230 bytes of a gzipped FileDescriptorProto
+	// 243 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2b, 0x49, 0x2d, 0x2e,
 	0xd1, 0x4f, 0x4c, 0x4a, 0xd6, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0x00, 0xf1, 0xf5, 0x12,
 	0x93, 0x92, 0xa5, 0x78, 0x92, 0xf3, 0x8b, 0x73, 0xf3, 0x8b, 0x21, 0xe2, 0x4a, 0x73, 0x19, 0xb9,
@@ -289,9 +277,10 @@ var fileDescriptor_edbe9e0eab89a1a7 = []byte{
 	0x38, 0xdd, 0x89, 0x95, 0x8b, 0xb9, 0xb8, 0x34, 0x57, 0x49, 0x90, 0x8b, 0xd1, 0x51, 0x88, 0x87,
 	0x8b, 0xb1, 0x02, 0xec, 0x38, 0xd6, 0x20, 0xc6, 0x0a, 0x90, 0x90, 0x13, 0x48, 0xa8, 0x12, 0x2c,
 	0xc4, 0x1b, 0xc4, 0x58, 0x09, 0x12, 0x72, 0x06, 0x09, 0x55, 0x81, 0x85, 0x38, 0x82, 0x18, 0xab,
-	0x9c, 0x84, 0x4e, 0x3c, 0x92, 0x63, 0xbc, 0xf0, 0x48, 0x8e, 0xf1, 0xc1, 0x23, 0x39, 0xc6, 0x28,
-	0x16, 0x90, 0xe9, 0x49, 0x6c, 0x60, 0x9b, 0x8c, 0x01, 0x01, 0x00, 0x00, 0xff, 0xff, 0xce, 0x6f,
-	0x75, 0x09, 0x1d, 0x01, 0x00, 0x00,
+	0x9c, 0xe4, 0x4e, 0x3c, 0x92, 0x63, 0xbc, 0xf0, 0x48, 0x8e, 0xf1, 0xc1, 0x23, 0x39, 0xc6, 0x09,
+	0x8f, 0xe5, 0x18, 0x2e, 0x3c, 0x96, 0x63, 0xb8, 0xf1, 0x58, 0x8e, 0x21, 0x8a, 0x05, 0x64, 0x53,
+	0x12, 0x1b, 0xd8, 0x56, 0x63, 0x40, 0x00, 0x00, 0x00, 0xff, 0xff, 0xb1, 0x4d, 0x04, 0x1f, 0x29,
+	0x01, 0x00, 0x00,
 }
 
 func (this *ABC) GetMsg() github_com_regen_network_cosmos_proto_test_iface.Msg {
@@ -342,10 +331,6 @@ func (m *ABC) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Sum != nil {
 		{
 			size := m.Sum.Size()
@@ -441,10 +426,6 @@ func (m *A) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.X != 0 {
 		i = encodeVarintAbc(dAtA, i, uint64(m.X))
 		i--
@@ -473,10 +454,6 @@ func (m *B) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Y != 0 {
 		i = encodeVarintAbc(dAtA, i, uint64(m.Y))
 		i--
@@ -505,10 +482,6 @@ func (m *C) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
 	if m.Z {
 		i--
 		if m.Z {
@@ -541,9 +514,6 @@ func (m *ABC) Size() (n int) {
 	_ = l
 	if m.Sum != nil {
 		n += m.Sum.Size()
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -593,9 +563,6 @@ func (m *A) Size() (n int) {
 	if m.X != 0 {
 		n += 1 + sovAbc(uint64(m.X))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -608,9 +575,6 @@ func (m *B) Size() (n int) {
 	if m.Y != 0 {
 		n += 1 + sovAbc(uint64(m.Y))
 	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
 	return n
 }
 
@@ -622,9 +586,6 @@ func (m *C) Size() (n int) {
 	_ = l
 	if m.Z {
 		n += 2
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
 	}
 	return n
 }
@@ -784,7 +745,6 @@ func (m *ABC) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -857,7 +817,6 @@ func (m *A) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -930,7 +889,6 @@ func (m *B) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
@@ -1004,7 +962,6 @@ func (m *C) Unmarshal(dAtA []byte) error {
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
 			iNdEx += skippy
 		}
 	}
