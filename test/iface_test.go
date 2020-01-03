@@ -5,6 +5,10 @@ import (
 	"testing"
 )
 
+type D struct{}
+
+func (m D) SomeMethod() string { return "D" }
+
 func TestToAndFrom(t *testing.T) {
 	abc := ABC{}
 
@@ -22,4 +26,7 @@ func TestToAndFrom(t *testing.T) {
 	iface1 = abc.GetMsg()
 	assert.NotNil(t, iface1)
 	assert.Equal(t, "C.Z:true", iface1.SomeMethod())
+
+	// D implements Msg but isn't in the ABC oneof and so this should fail
+	assert.Error(t, abc.SetMsg(&D{}))
 }
