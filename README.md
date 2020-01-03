@@ -14,7 +14,7 @@ Given this example `.proto` file:
 
 ```proto
 message ABC {
-    option (cosmos_proto.interface_type) = "my_package.MyInterface";
+    option (cosmos_proto.interface_type) = "my_package.Msg";
     oneof abc {
         A a = 1;
         B b = 2;
@@ -31,11 +31,11 @@ message C { bool z = 1; }
 
 The `ABC` struct will satisfy the following interface:
 ```go
-type MyInterfaceCodec interface {
-    GetMyInterface() MyInterface
-    SetMyInterface(value MyInterface) error
+type MsgCodec interface {
+    GetMsg() Msg
+    SetMsg(value Msg) error
 }
 ```
 
-The types `A`, `B`, and `C` must of course have implementations of `MyInterface`.
+The types `A`, `B`, and `C` must of course have implementations of `Msg`.
 
