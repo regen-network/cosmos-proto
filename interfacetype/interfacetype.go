@@ -64,7 +64,7 @@ func (p *interfacetype) Generate(file *generator.FileDescriptor) {
 		}
 
 		ccTypeName := generator.CamelCaseSlice(message.TypeName())
-		p.P(`func (this *`, ccTypeName, `) ToInterface() `, ifaceRef, ` {`)
+		p.P(`func (this *`, ccTypeName, `) Get`, ifaceName, `() `, ifaceRef, ` {`)
 		p.In()
 		for _, field := range message.Field {
 			fieldname := p.GetOneOfFieldName(message, field)
@@ -81,7 +81,7 @@ func (p *interfacetype) Generate(file *generator.FileDescriptor) {
 		p.Out()
 		p.P(`}`)
 		p.P(``)
-		p.P(`func (this *`, ccTypeName, `) FromInterface(value `, ifaceRef, `) error {`)
+		p.P(`func (this *`, ccTypeName, `) Set`, ifaceName, `(value `, ifaceRef, `) error {`)
 		p.In()
 		p.P(`switch vt := value.(type) {`)
 		p.In()

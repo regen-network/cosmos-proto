@@ -6,7 +6,11 @@ Extensions to [gogoprotobuf](github.com/gogo/protobuf) for Cosmos.
 
 *See [test](test/) for a full example.*
 
-With this proto file:
+The `cosmos_proto.interface_type` message option generates a getter and
+setter from the provided go interface. Messages which use this option must
+consist of a single `oneof` and no other fields.
+
+Given this example `.proto` file:
 
 ```proto
 message ABC {
@@ -25,27 +29,13 @@ message B { uint32 y = 1; }
 message C { bool z = 1; }
 ```
 
-and these interface definitions:
+The `ABC` struct will satisfy the following interface:
 ```go
-type MyInterface interface { SomeMethod() }
-
-func (m A) SomeMethod() { }
-
-func (m B) SomeMethod() { }
-
-func (m C) SomeMethod() { }
-```
-
-it is possible to convert the `ABC` message to and from `MyInterface`:
-
-```go
-func ExampleFrom(x MyInterface) {
-  var abc ABC 
-  abc.FromInterface(x)
-}
-
-func ExampleTo(abc ABC) {
-  var x MyInterface
-  x = abc.ToInterface()
+type MyInterfaceCodec interface {
+    GetMyInterface() MyInterface
+    SetMyInterface(value MyInterface) error
 }
 ```
+
+The types `A`, `B`, and `C` must of course have implementations of `MyInterface`.
+

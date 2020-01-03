@@ -294,7 +294,7 @@ var fileDescriptor_edbe9e0eab89a1a7 = []byte{
 	0x00, 0xff, 0xff, 0x57, 0x87, 0xb3, 0x6d, 0x24, 0x01, 0x00, 0x00,
 }
 
-func (this *ABC) ToInterface() github_com_regen_network_cosmos_proto_test_iface.Interface1 {
+func (this *ABC) GetInterface1() github_com_regen_network_cosmos_proto_test_iface.Interface1 {
 	if x := this.GetA(); x != nil {
 		return x
 	}
@@ -307,7 +307,7 @@ func (this *ABC) ToInterface() github_com_regen_network_cosmos_proto_test_iface.
 	return nil
 }
 
-func (this *ABC) FromInterface(value github_com_regen_network_cosmos_proto_test_iface.Interface1) error {
+func (this *ABC) SetInterface1(value github_com_regen_network_cosmos_proto_test_iface.Interface1) error {
 	switch vt := value.(type) {
 	case *A:
 		this.Sum = &ABC_A{vt}
