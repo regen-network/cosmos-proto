@@ -1,0 +1,27 @@
+syntax = "proto3";
+package test.interfacetype;
+
+import "cosmos.proto";
+
+option go_package = "test";
+
+message TestInterfaceMsg {
+    option (cosmos_proto.interface_type) = "github.com/regen-network/cosmos-proto/test/iface.Interface1";
+    oneof sum {
+        A a = 1;
+        B b = 2;
+        C c = 3;
+    }
+}
+
+message A {
+    int32 x = 1;
+}
+
+message B {
+    uint32 y = 1;
+}
+
+message C {
+    bool z = 1;
+}
