@@ -9,4 +9,4 @@ require (
 	honnef.co/go/tools v0.0.0-20190523083050-ea95bdfd59fc // indirect
 )
 
-replace github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.2-0.20200109210150-af42716c2f34
+replace github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.2-0.20200109210150-e09b9477765b394fbe2f5632f870112d045c31b3
