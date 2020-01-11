@@ -83,6 +83,12 @@ func (p *interfacetype) Generate(file *generator.FileDescriptor) {
 		p.P(``)
 		p.P(`func (this *`, ccTypeName, `) Set`, ifaceName, `(value `, ifaceRef, `) error {`)
 		p.In()
+		p.P(`if value == nil {`)
+		p.In()
+		p.P(`this.`, p.GetFieldName(message, message.Field[0]), ` = nil`)
+		p.P(`return nil`)
+		p.Out()
+		p.P("}")
 		p.P(`switch vt := value.(type) {`)
 		p.In()
 		for _, field := range message.Field {

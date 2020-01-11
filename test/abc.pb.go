@@ -297,6 +297,10 @@ func (this *ABC) GetMsg() github_com_regen_network_cosmos_proto_test_iface.Msg {
 }
 
 func (this *ABC) SetMsg(value github_com_regen_network_cosmos_proto_test_iface.Msg) error {
+	if value == nil {
+		this.Sum = nil
+		return nil
+	}
 	switch vt := value.(type) {
 	case *A:
 		this.Sum = &ABC_A{vt}

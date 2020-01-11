@@ -43,6 +43,11 @@ func TestToAndFrom(t *testing.T) {
 	assert.NotNil(t, iface1)
 	assert.Equal(t, "C.Z:true", iface1.SomeMethod())
 
+	// test nil
+	assert.NoError(t, abc.SetMsg(nil))
+	iface1 = abc.GetMsg()
+	assert.Nil(t, iface1)
+
 	// D implements Msg but isn't in the ABC oneof and so this should fail
 	assert.Error(t, abc.SetMsg(&D{}))
 }
