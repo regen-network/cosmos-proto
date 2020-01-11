@@ -94,6 +94,14 @@ func (p *interfacetype) Generate(file *generator.FileDescriptor) {
 			p.P(`this.`, oneofName, ` = &`, structName, `{vt}`)
 			p.P("return nil")
 			p.Out()
+			// Handle non-pointer case
+			if goTyp[0] == '*' {
+				p.P(`case `, goTyp[1:], `:`)
+				p.In()
+				p.P(`this.`, oneofName, ` = &`, structName, `{&vt}`)
+				p.P("return nil")
+				p.Out()
+			}
 		}
 		p.P(`}`)
 		p.P(`return fmt.Errorf("can't encode value of type %T as message `, ccTypeName, `", value)`)
