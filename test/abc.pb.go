@@ -302,19 +302,25 @@ func (this *ABC) SetMsg(value github_com_regen_network_cosmos_proto_test_iface.M
 		this.Sum = &ABC_A{vt}
 		return nil
 	case A:
-		this.Sum = &ABC_A{&vt}
+		x := new(A)
+		*x = vt
+		this.Sum = &ABC_A{x}
 		return nil
 	case *B:
 		this.Sum = &ABC_B{vt}
 		return nil
 	case B:
-		this.Sum = &ABC_B{&vt}
+		x := new(B)
+		*x = vt
+		this.Sum = &ABC_B{x}
 		return nil
 	case *C:
 		this.Sum = &ABC_C{vt}
 		return nil
 	case C:
-		this.Sum = &ABC_C{&vt}
+		x := new(C)
+		*x = vt
+		this.Sum = &ABC_C{x}
 		return nil
 	}
 	return fmt.Errorf("can't encode value of type %T as message ABC", value)
