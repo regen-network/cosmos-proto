@@ -98,9 +98,7 @@ func (p *interfacetype) Generate(file *generator.FileDescriptor) {
 			if goTyp[0] == '*' {
 				p.P(`case `, goTyp[1:], `:`)
 				p.In()
-				p.P(`x := new(`,goTyp[1:],")")
-				p.P("*x = vt")
-				p.P(`this.`, oneofName, ` = &`, structName, `{x}`)
+				p.P(`this.`, oneofName, ` = &`, structName, `{&vt}`)
 				p.P("return nil")
 				p.Out()
 			}
