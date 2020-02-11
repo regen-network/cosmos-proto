@@ -47,6 +47,11 @@ func (p *interfacetype) Generate(file *generator.FileDescriptor) {
 		if len(iface) == 0 {
 			continue
 		}
+		handleNonPointer := true
+		if iface[0] == '*' {
+			iface = iface[1:]
+			handleNonPointer = false
+		}
 		if len(message.OneofDecl) != 1 {
 			panic("interfacetype only supports messages with exactly one oneof declaration")
 		}
@@ -100,13 +105,15 @@ func (p *interfacetype) Generate(file *generator.FileDescriptor) {
 			p.P(`this.`, oneofName, ` = &`, structName, `{vt}`)
 			p.P("return nil")
 			p.Out()
-			// Handle non-pointer case
-			if goTyp[0] == '*' {
-				p.P(`case `, goTyp[1:], `:`)
-				p.In()
-				p.P(`this.`, oneofName, ` = &`, structName, `{&vt}`)
-				p.P("return nil")
-				p.Out()
+			if handleNonPointer {
+				// Handle non-pointer case
+				if goTyp[0] == '*' {
+					p.P(`case `, goTyp[1:], `:`)
+					p.In()
+					p.P(`this.`, oneofName, ` = &`, structName, `{&vt}`)
+					p.P("return nil")
+					p.Out()
+				}
 			}
 		}
 		p.P(`}`)
