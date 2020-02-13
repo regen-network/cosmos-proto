@@ -14,6 +14,15 @@ message ABC {
     }
 }
 
+message ABCNonPointer {
+    option (cosmos_proto.interface_type) = "*github.com/regen-network/cosmos-proto/test/iface.Msg";
+    oneof sum {
+        A a = 1;
+        B b = 2;
+        C c = 3;
+    }
+}
+
 message A {
     int32 x = 1;
 }

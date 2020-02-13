@@ -39,3 +39,11 @@ type MsgCodec interface {
 
 The types `A`, `B`, and `C` must of course have implementations of `Msg`.
 
+### Handling Non-Pointer Interfaces
+
+By default `interface_type` generates `Set` handlers for both pointer and non-pointer
+implementations of an interface (i.e. both `*A` and `A`). This means all interfaces
+must be implemented for the non-pointer version of a struct. To disable the non-pointer
+cases (so that just `*A` and not `A` needs to implement the interface), the interface
+type name can be prepended with a `*`, ex: `option (cosmos_proto.interface_type) = "*my_package.Msg";`.
+
