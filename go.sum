@@ -29,6 +29,8 @@ github.com/regen-network/protobuf v1.3.2-0.20200109210150-e09b9477765b394fbe2f56
 github.com/regen-network/protobuf v1.3.2-0.20200109210150-e09b9477765b394fbe2f5632f870112d045c31b3/go.mod h1:lye6mqhOn/GCw1zRl3uPD5VP8rC+LPMyTyPAyQV872U=
 github.com/regen-network/protobuf v1.3.2-alpha.regen.2 h1:wbHrZsCBM9M9EkKV3zevDjaFos67eB3zogGA6VJb8rQ=
 github.com/regen-network/protobuf v1.3.2-alpha.regen.2/go.mod h1:/J8/bR1T/NXyIdQDLUaq15LjNE83nRzkyrLAMcPewig=
+github.com/regen-network/protobuf v1.3.2-alpha.regen.3 h1:EqbzzpWgu08SfPE9rEtBdhbssX1x6hOsensP/lXlXsQ=
+github.com/regen-network/protobuf v1.3.2-alpha.regen.3/go.mod h1:/J8/bR1T/NXyIdQDLUaq15LjNE83nRzkyrLAMcPewig=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.4.0 h1:2E4SXV/wtOkTonXsotYi4li6zVWxYlZuYNCXe9XRJyk=
 github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=

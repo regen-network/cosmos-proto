@@ -7,4 +7,4 @@ require (
 	github.com/stretchr/testify v1.4.0
 )
 
-replace github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.2-alpha.regen.2
+replace github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.2-alpha.regen.3
