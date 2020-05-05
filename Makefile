@@ -8,5 +8,5 @@ proto-gen:
 
 test:
 	go install ./protoc-gen-gocosmos
-	protoc -I=. --gocosmos_out=plugins=interfacetype:. test/abc.proto
+	protoc -I=. --gocosmos_out=plugins=interfacetype,Mgoogle/protobuf/any.proto=github.com/gogo/protobuf/types:. test/abc.proto
 	go test ./test
