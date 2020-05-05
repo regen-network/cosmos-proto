@@ -2,6 +2,44 @@
 
 Extensions to [gogoprotobuf](github.com/gogo/protobuf) for Cosmos.
 
+## `accepts_interface`
+
+An informational extension to be added to `google.protobuf.Any` fields to indicate
+which interface that field accepts. The interface name should be independent of
+any programming language and either be unqualified to indicate the current package
+of fully-qualified to indicate another protobuf package.
+
+Example:
+
+```proto
+message SomeContainer {
+    google.protobuf.Any some_interface = 1 [(cosmos_proto.accepts_interface) = "SomeInterface"];
+}
+
+message AnotherContainer {
+    google.protobuf.Any another_interface = 1 [(cosmos_proto.accepts_interface) = "another.package.AnotherInterface"];
+}
+```
+
+## `implements_interface`
+
+An informational extension to be added to messages to indicate which interface
+that message implements. The interface name should be independent of
+any programming language and either be unqualified to indicate the current package
+of fully-qualified to indicate another protobuf package.
+
+```proto
+message A {
+    option (cosmos_proto.implements_interface) = "SomeInterface";
+    int64 x = 1;
+}
+
+message B {
+    option (cosmos_proto.implements_interface) = "another.package.AnotherInterface";
+    double x = 1;
+}
+```
+
 ## `interface_type`
 
 *See [test](test/) for a full example.*
