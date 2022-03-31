@@ -1,6 +1,13 @@
 # cosmos-proto
 
-Extensions to [gogoprotobuf](github.com/gogo/protobuf) for Cosmos.
+THIS PACKAGE IS DEPRECATED AND NOT USED ANY MORE.
+
+`protoc-gen-gocosmos` app was moved to [github.com/cosmos/gogoproto](https://github.com/cosmos/gogoproto).
+
+
+## Summary
+
+Extensions to [gogoprotobuf](https://github.com/gogo/protobuf) for Cosmos.
 
 ## `accepts_interface`
 
